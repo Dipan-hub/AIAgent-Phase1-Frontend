@@ -1,5 +1,5 @@
 //const BASE_URL = "https://aiagent-env.eba-vvwqbxfg.us-east-1.elasticbeanstalk.com";
-const BASE_URL = " https://aiagent-phase1-backend.onrender.com ";
+const BASE_URL = "https://aiagent-phase1-backend.onrender.com";
 
 export const sendPrompt = async (prompt) => {
   try {
