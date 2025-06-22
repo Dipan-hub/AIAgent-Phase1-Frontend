@@ -1,8 +1,8 @@
-export default function MessageBubble({ sender, text }) {
-  const isUser = sender === 'user';
+export default function MessageBubble({ from, text }) {
+  const isUser = from === 'user';
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
-      <div className={`px-4 py-2 rounded-lg max-w-[75%] ${isUser ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'}`}>
+    <div className={`mb-2 flex ${isUser ? 'justify-end' : 'justify-start'}`}>
+      <div className={`p-3 rounded-lg text-white ${isUser ? 'bg-blue-500' : 'bg-gray-700'}`}>
         {text}
       </div>
     </div>

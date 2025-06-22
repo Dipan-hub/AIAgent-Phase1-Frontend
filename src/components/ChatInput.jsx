@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ChatInput({ onSend }) {
-  const [input, setInput] = useState('');
+  const [text, setText] = useState("");
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    onSend(input);
-    setInput('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!text.trim()) return;
+    onSend(text);
+    setText("");
   };
 
   return (
-    <div className="border-t px-4 py-2 flex items-center">
-      <textarea
-        className="flex-1 resize-none border rounded p-2 mr-2"
+    <form onSubmit={handleSubmit} className="flex p-2 border-t">
+      <input
+        type="text"
+        className="flex-1 p-2 border rounded mr-2"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         placeholder="Type your message..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        rows={1}
-        onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
       />
-      <button onClick={handleSend} className="bg-blue-600 text-white px-4 py-1 rounded">Send</button>
-    </div>
+      <button className="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
+    </form>
   );
 }
